@@ -1,11 +1,8 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './controller/app.controller';
-import { AppService } from './service/app.service';
 import { MongooseModule } from '@nestjs/mongoose';
+import { ValStratModule } from './modules/valStrat.module';
 
 @Module({
-  imports: [MongooseModule.forRoot('mongodb://localhost:27017', {dbName: 'valorantdb'})],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [MongooseModule.forRoot('mongodb://localhost:27017', {dbName: 'valorantdb'}), ValStratModule],
 })
 export class AppModule {}

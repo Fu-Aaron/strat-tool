@@ -1,12 +1,4 @@
-import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose"
-import { Document } from 'mongoose'
-
-@Schema()
-export class ImageWithDescription extends Document {
-  @Prop({ required: true })
+export interface ImageWithDescription {
   filename: string;
-
-  @Prop()
   description: string;
 }
-export const ImageWithDescriptionSchema = SchemaFactory.createForClass(ImageWithDescription);

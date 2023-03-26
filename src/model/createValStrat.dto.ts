@@ -1,4 +1,4 @@
-export class CreateStratsDto {
+export class CreateValStratDto {
    name: string;
    notes: string;
    map: string;
