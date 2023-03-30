@@ -1,5 +1,5 @@
 import { Body, Controller, Get, HttpStatus, Post, Res, UsePipes, ValidationPipe } from '@nestjs/common';
-import { CreateValStratDto } from 'src/model/createValStrat.dto';
+import { CreateValStratDto } from 'src/model/dto/createValStrat.dto';
 import { ValStratService } from '../service/valStrat.service';
 
 @Controller('valstrats')

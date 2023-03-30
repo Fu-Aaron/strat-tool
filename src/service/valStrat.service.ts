@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { CreateValStratDto } from 'src/model/createValStrat.dto';
-import { ImageWithDescription } from 'src/model/mapImage.schema';
+import { CreateValStratDto } from 'src/model/dto/createValStrat.dto';
+import { ImageWithDescriptionDto } from 'src/model/dto/imageWithDescription.dto';
 import { ValStrat } from 'src/model/valStrat.schema';
 
 @Injectable()
@@ -13,7 +13,7 @@ export class ValStratService {
   }
 
   async uploadStrat(createValStratDto: CreateValStratDto): Promise<string> {
-    let imagesWithDescriptions: ImageWithDescription[] = this.createImageWithDescriptionsFromCreateStratDto(createValStratDto);
+    let imagesWithDescriptions: ImageWithDescriptionDto[] = this.createImageWithDescriptionsFromCreateStratDto(createValStratDto);
         let strat = new this.stratModel({
             name: createValStratDto.name,
             notes: createValStratDto.notes,
@@ -26,7 +26,7 @@ export class ValStratService {
   }
 
   private createImageWithDescriptionsFromCreateStratDto(createStratDto: CreateValStratDto) {
-    let imagesWithDescriptions: ImageWithDescription[] = []; 
+    let imagesWithDescriptions: ImageWithDescriptionDto[] = []; 
     for (let i = 0; i < createStratDto.mapFileNames.length; i++) {
         const filename = createStratDto.mapFileNames[i]
         let description;
